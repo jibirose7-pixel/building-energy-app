@@ -10,8 +10,8 @@ import tensorflow as tf
 # Page config
 # ----------------------------
 st.set_page_config(page_title="Building Energy Load Prediction", layout="centered")
-st.title("Building Energy Load Prediction")
-st.write("Neural Network model loaded from MLflow")
+st.title("Heating & Cooling Energy Load Prediction")
+st.write("A Neural Network model")
 
 # ----------------------------
 # Load scaler + PCA
@@ -33,7 +33,7 @@ model, scaler, pca = load_model_and_preprocessors()
 # ----------------------------
 # Sidebar for user input
 # ----------------------------
-st.sidebar.header("Building Parameters")
+st.sidebar.header("Building Features")
 
 rc = st.sidebar.slider("Relative Compactness", 0.5, 1.0, 0.75)
 sa = st.sidebar.slider("Surface Area", 500.0, 900.0, 700.0)
