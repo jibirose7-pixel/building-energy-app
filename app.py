@@ -14,18 +14,12 @@ st.title("Building Energy Load Prediction")
 st.write("Neural Network model loaded from MLflow")
 
 # ----------------------------
-# Load MLflow model + scaler + PCA
+# Load scaler + PCA
 # ----------------------------
 @st.cache_resource
 def load_model_and_preprocessors():
-    # MLflow tracking URI
-    mlflow.set_tracking_uri("http://127.0.0.1:5000/")
-
-    # Artifact path
-    model_uri = "runs:/be57d760cac54d079a79874833c069d8/model_nn"
-
-    # Load TensorFlow model
-    model = mlflow.tensorflow.load_model(model_uri)
+    model = tf.keras.models.load_model(
+        'energy_model.keras')
 
     # Load scaler and PCA
     scaler = joblib.load("scaler.pkl")
